@@ -1,69 +1,140 @@
-# React + TypeScript + Vite
+Отличная основа 👌
+Я переработал твой README так, чтобы он выглядел более структурированным и «open-source friendly». Добавил секции для демо, скриншотов (можешь потом вставить), планы, лицензия, а также чуть улучшил формулировки.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Вот улучшенный вариант:
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+````markdown
+# 🎰 Casino Frontend
 
-## Expanding the ESLint configuration
+Веб-приложение для онлайн-казино с играми **"Монетка"** и **"Crash"**, системой бонусов, профилем и балансом пользователя.  
+Проект разработан на **React + TypeScript** с использованием современного стека фронтенд-технологий.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-	globalIgnores(['dist']),
-	{
-		files: ['**/*.{ts,tsx}'],
-		extends: [
-			// Other configs...
+## 🚀 Стек технологий
 
-			// Remove tseslint.configs.recommended and replace with this
-			...tseslint.configs.recommendedTypeChecked,
-			// Alternatively, use this for stricter rules
-			...tseslint.configs.strictTypeChecked,
-			// Optionally, add this for stylistic rules
-			...tseslint.configs.stylisticTypeChecked,
+- ⚛️ **React + TypeScript** — основа фронтенда  
+- 🗂 **Redux Toolkit** — управление состоянием  
+- 🔀 **React Router** — маршрутизация  
+- 🔗 **Axios** — HTTP-запросы  
+- 📡 **React Query (@tanstack/react-query)** — работа с данными и мутациями  
+- 🎨 **TailwindCSS** — стилизация  
 
-			// Other configs...
-		],
-		languageOptions: {
-			parserOptions: {
-				project: ['./tsconfig.node.json', './tsconfig.app.json'],
-				tsconfigRootDir: import.meta.dirname,
-			},
-			// other options...
-		},
-	},
-]);
+---
+
+## 🛠 Установка и запуск
+
+1. **Клонируйте репозиторий:**
+   ```bash
+   git clone https://github.com/Galmzzzzz/react-casino-front.git
+   cd react-casino-front
+````
+
+2. **Установите зависимости:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Запустите проект в режиме разработки:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **API сервер должен быть доступен по адресу:**
+
+   ```
+   http://localhost:8000/
+   ```
+
+   > При необходимости измените адрес в `src/requests/` или настройте `.env`.
+
+---
+
+## 📂 Структура проекта
+
+```
+src/
+ ├─ components/   # Общие UI-компоненты (Navbar и др.)
+ ├─ pages/games/  # Игровые страницы (FlipGame, Crash)
+ ├─ mutations/    # Хуки для мутаций через React Query
+ ├─ requests/     # HTTP-запросы к API
+ └─ store/        # Redux store и слайсы пользователя
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+## 🎮 Основные возможности
 
-export default tseslint.config([
-	globalIgnores(['dist']),
-	{
-		files: ['**/*.{ts,tsx}'],
-		extends: [
-			// Other configs...
-			// Enable lint rules for React
-			reactX.configs['recommended-typescript'],
-			// Enable lint rules for React DOM
-			reactDom.configs.recommended,
-		],
-		languageOptions: {
-			parserOptions: {
-				project: ['./tsconfig.node.json', './tsconfig.app.json'],
-				tsconfigRootDir: import.meta.dirname,
-			},
-			// other options...
-		},
-	},
-]);
+* 🔑 **Аутентификация**
+
+  * JWT-токен хранится в cookies
+  * Авторизация при запросах к API
+
+* 👤 **Профиль**
+
+  * Просмотр и пополнение баланса
+
+* 🎲 **Игры**
+
+  * **Монетка (Coin Flip):** ставка, выбор стороны, результат, обновление баланса
+  * **Crash:** ставка, автостоп, результат, обновление баланса
+
+* 🎁 **Бонусы**
+
+  * Специальная страница с бонусами
+
+* 🧭 **Навигация**
+
+  * Удобный Navbar с балансом и ссылками
+
+---
+
+## 🌐 API
+
+* Все запросы используют **JWT-токен из cookies**
+* Основные эндпоинты:
+
+  * `POST /coin-flip/` — игра «Монетка»
+  * `POST /crash/` — игра «Crash»
+  * `GET  /profile/` — профиль пользователя
+
+---
+
+## ⚙️ Пример `.env`
+
+```env
+VITE_API_URL=http://localhost:8000/
 ```
+
+---
+
+---
+
+## 📌 Планы
+
+* Добавить больше игр (рулетка, слоты и др.)
+* Реализовать систему рефералов
+* Улучшить UI/UX (анимации, адаптивность)
+* Написать автотесты
+
+---
+
+## 🤝 Контрибьютинг
+
+Буду рад вашим идеям и улучшениям.
+Форкните репозиторий, создайте новую ветку и отправьте PR 🚀
+
+---
+
+## 📜 Лицензия
+
+Этот проект распространяется под лицензией **MIT**.
+Подробнее см. [LICENSE](./LICENSE).
+
+---
+
+
